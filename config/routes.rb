@@ -3,15 +3,20 @@ Rails.application.routes.draw do
   #root path
   root 'application#home'
   
-  resources :requirements
-  resources :projects
-  
+  resources :users do 
+    resources :projects
+  end
+
+
+
   #sign up route 
   get '/signup', to: 'users#new'
-  post '/signup', to: 'users#create'
+  post '/users/new', to: 'users#create'
   
 	#sessions routes
 	get '/login', to: 'sessions#new'
 	post '/login', to: 'sessions#create'
-	get '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
+  
+  # post '/users/:id/projects/new', to: 'projects#create'
 end

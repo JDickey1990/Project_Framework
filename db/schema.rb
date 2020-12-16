@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_022728) do
+ActiveRecord::Schema.define(version: 2020_12_14_195909) do
+
+  create_table "project_requirements", force: :cascade do |t|
+    t.datetime "deadline"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "project_id"
+    t.integer "requirement_id"
+    t.index ["project_id"], name: "index_project_requirements_on_project_id"
+    t.index ["requirement_id"], name: "index_project_requirements_on_requirement_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
@@ -21,16 +31,10 @@ ActiveRecord::Schema.define(version: 2020_12_13_022728) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
-  create_table "projects_requirements", id: false, force: :cascade do |t|
-    t.integer "project_id", null: false
-    t.integer "requirement_id", null: false
-    t.datetime "deadline"
-  end
-
   create_table "requirements", force: :cascade do |t|
     t.string "description"
     t.string "priority"
-    t.boolean "complete"
+    t.boolean "complete", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

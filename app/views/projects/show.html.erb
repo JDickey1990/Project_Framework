@@ -1,0 +1,14 @@
+<h1><%= @project.name %></h1>
+
+<h2><%= @project.description %></h2>
+
+
+<h3> List Of Project Requirements</h3>
+<ol>
+    <%@project.requirements.each do |r| %>
+     <li><%= r.description %></li>  
+     <%= "Completed: #{r.complete}"%>
+   <% end %>
+</ol>
+
+<%= link_to "Home", user_projects_path%>
