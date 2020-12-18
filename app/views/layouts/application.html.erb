@@ -11,7 +11,8 @@
 
   <div>
     <% if current_user %>
-      <%= link_to "Log Out", logout_path, method: :delete%>
+      <%= link_to "Log Out", logout_path, method: :delete%><br>
+      <%= link_to "Your Projects", user_projects_path%>
     <% end %>
   </div>
 
