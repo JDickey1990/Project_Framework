@@ -1,22 +1,22 @@
 
-    <%= form_for @project do |f|%>
-      <%= f.hidden_field :user_id, value: @user.id %>
+    <%= form_for @project do |f|%>  
+    <%= f.hidden_field :user_id, value: @user.id %>
         <fieldset><br>
-            <%= f.label :name %>
+            <%= f.label "Project Name:" %>
             <%= f.text_field :name%>
         </fieldset><br>
         <fieldset><br>
-            <%= f.label :description %>
+            <%= f.label "Project Description:" %>
             <%= f.text_area :description %>
         </fieldset><br>
 
        <fieldset><br>
-        <%= f.fields_for :requirements, @project.requirements.build do |requirement| %>
-          <%= f.label :description %>
-          <%= requirement.text_field :description %>
-        <% end %>
+          <%= f.label :requirements %><br>
+          <%= f.fields_for :requirements, @project.requirements.build do |requirement| %>
+            <p><%= f.label :description %>
+            <%= requirement.text_field :description %><p>
+          <% end %>
        </fieldset><br>
-  
      <%= f.submit "Create project" %>
    <% end %>
 

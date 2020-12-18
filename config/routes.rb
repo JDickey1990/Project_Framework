@@ -3,14 +3,15 @@ Rails.application.routes.draw do
   #root path
   root 'sessions#home'
   
-
-
+  resources :deadlines
+  resources :requirements
   resources :projects
   resources :users
   resources :users do 
     resources :projects
   end
 
+  get '/resources/:id/activate', to: 'requirements#status', as: "requirement_status"
 
 
   #sign up route 

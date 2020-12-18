@@ -12,14 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2020_12_14_195909) do
 
-  create_table "project_requirements", force: :cascade do |t|
+  create_table "deadlines", force: :cascade do |t|
     t.datetime "deadline"
+    t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "project_id"
     t.integer "requirement_id"
-    t.index ["project_id"], name: "index_project_requirements_on_project_id"
-    t.index ["requirement_id"], name: "index_project_requirements_on_requirement_id"
+    t.index ["project_id"], name: "index_deadlines_on_project_id"
+    t.index ["requirement_id"], name: "index_deadlines_on_requirement_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -32,9 +33,9 @@ ActiveRecord::Schema.define(version: 2020_12_14_195909) do
   end
 
   create_table "requirements", force: :cascade do |t|
+    t.datetime "deadline"
     t.string "description"
     t.string "priority"
-    t.boolean "complete", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

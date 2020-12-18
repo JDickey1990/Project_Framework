@@ -87,19 +87,13 @@
 		Def home
 		
 		End 
-      <fieldset><br>
-        <%= f.fields_for :project_requirements do |requirement| %>
-          <%= f.label :deadline %>
-          <%= requirement.text_field :deadline %>
-        <% end %>
-       </fieldset><br>
+     
 
-         <%= f.hidden_field :user_id, value: @user.id %>
-
-         
-        <fieldset><br>
-        <%= f.fields_for :project_requirements, @user.project_requirements.build do |requirement| %>
-          <%= f.label :deadline %>
-          <%= requirement.text_field :deadline %>
-        <% end %>
-       </fieldset><br>
+      
+         <fieldset><br>
+       <%= f.label "Requirement Deadline" %><br>
+       <%= f.fields_for :deadlines, @project.deadlines.build do |deadline| %>
+         <p><%= f.label :deadline %>
+         <%= deadline.datetime_local_field :deadline %></p>
+       <% end %>
+    </fieldset><br>
