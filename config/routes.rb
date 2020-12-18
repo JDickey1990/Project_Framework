@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 	#sessions routes
 	get '/login', to: 'sessions#new'
 	post '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
   
   # post '/users/:id/projects/new', to: 'projects#create'
 end
