@@ -11,18 +11,12 @@ class ProjectsController < ApplicationController
     end
 
     def new 
-        #  binding.pry
-         @user = User.find(params[:user_id])
+         @user = current_user
          @project =Project.new
-        
      end
 
     def create
-        #  raise params.inspect
-        #  binding.pry
         @project = Project.create(project_params)
-
-         
         if @project.save
             redirect_to user_project_path(@project.user_id, @project)
         else 
@@ -33,6 +27,6 @@ class ProjectsController < ApplicationController
     private
 
     def project_params
-        params.require(:project).permit(:name, :description, :user_id, requirements_attributes: [:description])
+        params.require(:project).permit(:name, :description, :user_id, requirements_attributes: [:description, :deadline])
     end
 end
