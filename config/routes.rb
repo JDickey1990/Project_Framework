@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   #root path
   root 'application#home'
   
+
+
+  resources :projects
+  resources :users
   resources :users do 
     resources :projects
   end

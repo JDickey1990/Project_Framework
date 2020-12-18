@@ -1,7 +1,7 @@
 <h1><%= "#{@user.name}'s Projects"%></h1>
 <h3> GET TO WORK!!</h3>
 <% @projects.each do |project| %>
-    <h4><%= link_to project.name, user_project_path(project.user,project) %></h4><br>
+    <h4><%= link_to project.name, user_project_path(project.user_id,project) %></h4><br>
 <%end%> 
 
 <%= link_to "Add a new project", new_user_project_path(@user) %><br>

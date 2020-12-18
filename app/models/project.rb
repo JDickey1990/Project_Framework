@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
 has_many :project_requirements
 has_many :requirements, through: :project_requirements
-belongs_to :user
+ belongs_to :user
 
 
 accepts_nested_attributes_for :project_requirements

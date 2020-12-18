@@ -95,3 +95,11 @@
        </fieldset><br>
 
          <%= f.hidden_field :user_id, value: @user.id %>
+
+         
+        <fieldset><br>
+        <%= f.fields_for :project_requirements, @user.project_requirements.build do |requirement| %>
+          <%= f.label :deadline %>
+          <%= requirement.text_field :deadline %>
+        <% end %>
+       </fieldset><br>
