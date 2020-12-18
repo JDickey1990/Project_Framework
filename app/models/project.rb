@@ -1,11 +1,10 @@
 class Project < ApplicationRecord
-has_many :project_requirements
-has_many :requirements, through: :project_requirements
+has_many :deadlines
+has_many :requirements, through: :deadlines
  belongs_to :user
-
-
-accepts_nested_attributes_for :project_requirements
+ 
 accepts_nested_attributes_for :requirements
+accepts_nested_attributes_for :deadlines
 
     # def project_requirements_attributes=(requirement_attributes)
     #      binding.pry
