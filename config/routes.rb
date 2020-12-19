@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :requirements
   resources :projects
   resources :users
-  resources :users do 
-    resources :projects
+
+    resources :projects do 
+      resources :requirements
   end
 
   get '/resources/:id/activate', to: 'requirements#status', as: "requirement_status"
