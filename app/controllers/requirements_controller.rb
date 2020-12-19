@@ -4,8 +4,25 @@ class RequirementsController < ApplicationController
         @requirement = Requirement.find(params[:id])
     end
 
+    def new
+      #  binding.pry
+       @project = Project.find_by(id: params[:project_id])
+      @requirement = @project.requirements.build
+      @deadline = @project.deadlines.build
+    end
+
+    def create
+      #  binding.pry
+      @requirement = Requirement.create(requirement_params)
+      # @requirement = .requirements.build(requirement_params)
+      if @requirement.save
+          redirect_to requirement_path(@requirement)
+      else 
+          render :new
+      end
+    end
+
     def status
-        # binding.pry
         @deadline = Deadline.find(params[:id])
         if @deadline.completed == true
             @deadline.completed = false
@@ -14,8 +31,14 @@ class RequirementsController < ApplicationController
             @deadline.completed = true
             @deadline.save
           end
-          redirect_to user_project_path(@deadline.project.user_id,@deadline.project_id)
+          redirect_to project_path(@deadline.project_id)
     end
 
-   
+
+   private 
+
+   def requirement_params
+    params.require(:requirement).permit(:description, :priority, deadlines_attributes: [:deadline, :project_id])
+   end
+
 end

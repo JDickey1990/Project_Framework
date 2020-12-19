@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :projects
   resources :users
 
-    resources :projects do 
-      resources :requirements
+  resources :projects do 
+      resources :requirements, only: [:new, :index]
   end
 
   get '/resources/:id/activate', to: 'requirements#status', as: "requirement_status"
@@ -24,5 +24,4 @@ Rails.application.routes.draw do
 	post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   
-  # post '/users/:id/projects/new', to: 'projects#create'
 end

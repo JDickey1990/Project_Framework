@@ -97,3 +97,11 @@
          <%= deadline.datetime_local_field :deadline %></p>
        <% end %>
     </fieldset><br>
+
+     <fieldset><br>
+              <%= f.label :deadlines %><br>
+              <%= f.fields_for :deadlines do |deadline| %>
+                <p><%= f.label :deadline %>
+                <%= deadline.datetime_local_field :deadline %></p>
+              <% end %>
+            </fieldset><br>

@@ -1,0 +1,26 @@
+
+    <%= form_for @requirement do |f|%>  
+            <fieldset><br>
+                <%= f.label :description %>
+                <%= f.text_field :description%>
+            </fieldset><br>
+
+            <fieldset><br>
+                <%= f.label :priority %>
+                <%= f.text_field :priority %>
+             </fieldset><br>
+
+             <fieldset><br>
+              <%= f.label :deadlines %><br>
+              <%= f.fields_for :deadlines, @requirement.deadlines.build do |deadline| %>
+                <%= deadline.hidden_field :project_id, value: @project.id %>
+                <p><%= f.label :deadline %>
+                <%= deadline.datetime_local_field :deadline %></p>
+              <% end %>
+            </fieldset><br>
+
+        <%= f.submit "Create Requirement" %>
+    <% end %>
+         
+     
+    

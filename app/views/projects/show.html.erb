@@ -2,6 +2,8 @@
 
 <h2><%= @project.description %></h2>
 
+<%= link_to "Add A New Requirement", new_project_requirement_path(@project) %><br><br>
+
 
 <h3> List Of Project Requirements</h3>
 <ol>
@@ -12,7 +14,7 @@
      <% end %>
       <% r.deadlines.each do |deadline|%>
         <% if deadline.completed == false %>
-          Status: <%= link_to "Incomplete", requirement_status_path(deadline) %><br>
+          Status: <%= button_to "Incomplete", requirement_status_path(deadline) %><br>
         <% else deadline.completed == true %>
           Status: <%= link_to "Complete", requirement_status_path(deadline) %><br>
         <%end%>  

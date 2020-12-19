@@ -1,4 +1,5 @@
 <h1><%= "#{current_user.name}'s Projects"%></h1>
+
 <h3> GET TO WORK!!</h3>
 <% @projects.each do |project| %>
     <h4><%= link_to project.name, project_path(project) %></h4><br>

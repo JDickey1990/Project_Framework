@@ -4,7 +4,7 @@ has_many :requirements, through: :deadlines
  belongs_to :user
  
 accepts_nested_attributes_for :requirements
-accepts_nested_attributes_for :deadlines
+
 
     # def project_requirements_attributes=(requirement_attributes)
     #      binding.pry
