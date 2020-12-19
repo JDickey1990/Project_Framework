@@ -1,9 +1,7 @@
 class ProjectsController < ApplicationController
 
     def index
-        # binding.pry
-        @user = User.find(params[:user_id])
-        @projects = @user.projects
+        @projects = current_user.projects
     end
 
     def show 
@@ -12,7 +10,7 @@ class ProjectsController < ApplicationController
 
     def new 
          @user = current_user
-         @project =Project.new
+         @project = Project.new
      end
 
     def create
