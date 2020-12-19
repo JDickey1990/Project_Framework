@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_12_14_195909) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.datetime "project_deadline"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -33,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_12_14_195909) do
   end
 
   create_table "requirements", force: :cascade do |t|
-    t.datetime "deadline"
+    t.string "notes"
     t.string "description"
     t.string "priority"
     t.datetime "created_at", precision: 6, null: false

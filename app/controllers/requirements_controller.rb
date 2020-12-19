@@ -5,18 +5,23 @@ class RequirementsController < ApplicationController
     end
 
     def new
-      #  binding.pry
-       @project = Project.find_by(id: params[:project_id])
-      @requirement = @project.requirements.build
-      @deadline = @project.deadlines.build
+      if  @project = Project.find_by(id: params[:project_id])
+         @requirement = @project.requirements.build
+        @deadline = @project.deadlines.build
+      else 
+        @project = Project.new
+      end
     end
 
     def create
-      #  binding.pry
-      @requirement = Requirement.create(requirement_params)
-      # @requirement = .requirements.build(requirement_params)
-      if @requirement.save
-          redirect_to requirement_path(@requirement)
+      # binding.pry
+      if params.blank?
+        @requirement = Requirement.create(requirement_params)
+        if @requirement.save
+            redirect_to requirement_path(@requirement)
+        else 
+            render :new
+        end
       else 
           render :new
       end

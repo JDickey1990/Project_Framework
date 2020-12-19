@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: params[:user][:email])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id 
-            redirect_to user_projects_path(@user)
+            redirect_to projects_path
         else
             flash[:error] = "Login Failed"
             redirect_to login_path

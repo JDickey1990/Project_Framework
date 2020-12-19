@@ -9,15 +9,15 @@
 <ol>
     <%@project.requirements.each do |r| %>
      <li><h4><%= r.description %></h4></li>  
-     <% if r.deadline %>
-      <%= "Deadline:#{r.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br>
-     <% end %>
       <% r.deadlines.each do |deadline|%>
         <% if deadline.completed == false %>
           Status: <%= button_to "Incomplete", requirement_status_path(deadline) %><br>
         <% else deadline.completed == true %>
           Status: <%= link_to "Complete", requirement_status_path(deadline) %><br>
         <%end%>  
+          <% if deadline.deadline %>
+            <%= "Deadline:#{deadline.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br>
+          <% end %>
       <% end %>
         <%= link_to "Details", requirement_path(r) %>
    <% end %>
