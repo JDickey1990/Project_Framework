@@ -1,4 +1,6 @@
-<%= @requirement.description %>
+<h1><%= @requirement.description %></h1>
+<p><%= @requirement.notes %></p>
+
 <% @requirement.deadlines.each do |d| %>
     <% if d.deadline %>
     <%= "Deadline:#{d.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br>

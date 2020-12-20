@@ -8,10 +8,10 @@
 
 #users
 jordan = User.create(name: "Jordan", password: "1234", email: "jordan@email.com")
-jordan.projects.create(name: "Mod 3 ROR", description: "A ruby on rails project")
+jordan.projects.create(name: "Mod 3 ROR", description: "A ruby on rails project", :project_deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
 sarah = User.create(name: "Sarah", password: "1234", email: "sarah@email.com")
-sarah.projects.create(name: "Mod 3 ROR", description: "An even better ruby on rails project")
+sarah.projects.create(name: "Mod 3 ROR", description: "An even better ruby on rails project", :project_deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
 
 #Requirements

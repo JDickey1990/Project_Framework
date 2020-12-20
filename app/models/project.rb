@@ -4,5 +4,5 @@ has_many :requirements, through: :deadlines
 belongs_to :user
  
 accepts_nested_attributes_for :requirements
-validates :name, presence: true
+validates :name, :project_deadline, presence: true
 end
