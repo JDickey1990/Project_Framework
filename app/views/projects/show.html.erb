@@ -6,6 +6,7 @@
 
 <%= link_to "Add A New Requirement", new_project_requirement_path(@project) %><br><br>
 
+<%= button_to "Delete Project", project_path(@project), method: :delete, data: { confirm: "Are you sure you want to delete this project?"}%><br>
 
 <h3> List Of Project Requirements</h3>
 <ol>

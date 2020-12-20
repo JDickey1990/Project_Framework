@@ -20,7 +20,6 @@ class RequirementsController < ApplicationController
     end
 
     def destroy
-      # binding.pry
       Requirement.find(params[:id]).destroy
       redirect_to projects_path
     end
