@@ -19,6 +19,23 @@ class RequirementsController < ApplicationController
       end
     end
 
+    def edit
+      @requirement = Requirement.find(params[:id]) 
+    end
+
+    def update 
+      # binding.pry
+      @requirement = Requirement.find(params[:id])
+      updated = @requirement.update(requirement_params)
+      if updated
+        redirect_to requirement_path(@requirement)
+      else
+        render :edit
+      end
+    end
+
+    
+
     def destroy
       Requirement.find(params[:id]).destroy
       redirect_to projects_path
@@ -40,7 +57,7 @@ class RequirementsController < ApplicationController
    private 
 
    def requirement_params
-    params.require(:requirement).permit(:description, :priority, deadlines_attributes: [:deadline, :project_id])
+    params.require(:requirement).permit(:description, :priority, :notes, deadlines_attributes: [:deadline, :project_id, :id])
    end
 
 end
