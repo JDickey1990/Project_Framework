@@ -19,6 +19,12 @@ class RequirementsController < ApplicationController
       end
     end
 
+    def destroy
+      # binding.pry
+      Requirement.find(params[:id]).destroy
+      redirect_to projects_path
+    end
+
     def status
         @deadline = Deadline.find(params[:id])
         if @deadline.completed == true

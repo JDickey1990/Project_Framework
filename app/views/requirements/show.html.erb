@@ -1,5 +1,9 @@
 <h1><%= @requirement.description %></h1>
-<p><%= @requirement.notes %></p>
+<p><%= "Notes: #{@requirement.notes}" %></p>
+
+
+<%= button_to "Delete Requirement", requirement_path( @requirement), method: :delete, data: { confirm: "Are you sure you want to delete this requirement?"}%><br>
+
 
 <% @requirement.deadlines.each do |d| %>
     <% if d.deadline %>
