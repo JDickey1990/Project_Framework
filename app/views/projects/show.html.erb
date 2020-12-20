@@ -5,8 +5,8 @@
 <h3><%= "Project Deadline: #{@project.project_deadline.strftime("%A, %d %b %Y %l:%M %p")}" %></h3>
 
 <%= link_to "Add A New Requirement", new_project_requirement_path(@project) %><br><br>
-
-<%= button_to "Delete Project", project_path(@project), method: :delete, data: { confirm: "Are you sure you want to delete this project?"}%><br>
+<%= link_to "Edit Project", edit_project_path(@project) %><br>
+<%= link_to "Delete Project", project_path(@project), method: :delete, data: { confirm: "Are you sure you want to delete this project?"}%><br>
 
 <h3> List Of Project Requirements</h3>
 <ol>
@@ -19,7 +19,7 @@
            <%= link_to "Change Status:", requirement_status_path(deadline) %> Complete<br>
         <%end%>  
           <% if deadline.deadline %>
-            <%= "Deadline:#{deadline.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br>
+            <%= "Deadline:#{deadline.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br><br>
           <% end %>
       <% end %>
         <%= link_to "Details", requirement_path(r) %>

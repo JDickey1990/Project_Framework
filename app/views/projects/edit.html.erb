@@ -1,0 +1,14 @@
+<%= render partial: '/layouts/errors', locals: {object: @project} %>
+<%= form_for @project do |f|%>  
+    <fieldset><br>
+        <%= f.label "Project Name:" %><br>
+        <%= f.text_field :name%><br><br>
+
+        <%= f.label "Project Description:" %><br>
+        <%= f.text_area :description %><br><br>
+
+        <p><%= f.label :project_deadline %>
+        <%= f.datetime_local_field :project_deadline %></p>
+    </fieldset><br>
+ <%= f.submit "Edit project" %>
+<% end %>
