@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get '/resources/:id/activate', to: 'requirements#status', as: "requirement_status"
 
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
 
   #sign up route 
   get '/signup', to: 'users#new'

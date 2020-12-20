@@ -9,7 +9,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <body>
   <div>
+    <%= button_to "Log In With Google", '/auth/google_oauth2' %>
     <% if current_user %>
       <%= link_to "Log Out", logout_path, method: :delete%><br>
       <%= link_to "Your Projects", projects_path %><br>
@@ -17,7 +19,6 @@
     <% end %>
   </div>
 
-  <body>
     <%= yield %>
     
   </body>
