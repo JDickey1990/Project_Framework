@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-
+    before_action :verified_user    
     def index
         @projects = current_user.projects
     end
@@ -27,7 +27,6 @@ class ProjectsController < ApplicationController
     end
   
     def update 
-        # binding.pry
         @project = Project.find(params[:id])
         updated = @project.update(project_params)
         if updated
@@ -46,5 +45,9 @@ class ProjectsController < ApplicationController
 
     def project_params
         params.require(:project).permit(:name, :description, :user_id, :project_deadline, requirements_attributes: [:description, :notes])
+    end
+
+    def set_project
+        @project = Project.find(params[:id])
     end
 end

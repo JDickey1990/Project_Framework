@@ -1,5 +1,6 @@
 class RequirementsController < ApplicationController
- 
+  before_action :verified_user   
+  
     def show 
         @requirement = Requirement.find(params[:id])
     end

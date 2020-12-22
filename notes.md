@@ -83,28 +83,5 @@
 	Post '/login', to: 'sessions#create'
 	Delete '/logout', to: 'sessions#destroy'
 	
-	Application Controller - best place to put the root route
-		Def home
+
 		
-		End 
-     
-
-      
-         <fieldset><br>
-       <%= f.label "Requirement Deadline" %><br>
-       <%= f.fields_for :deadlines, @project.deadlines.build do |deadline| %>
-         <p><%= f.label :deadline %>
-         <%= deadline.datetime_local_field :deadline %></p>
-       <% end %>
-    </fieldset><br>
-
-     <fieldset><br>
-              <%= f.label :deadlines %><br>
-              <%= f.fields_for :deadlines do |deadline| %>
-                <p><%= f.label :deadline %>
-                <%= deadline.datetime_local_field :deadline %></p>
-              <% end %>
-            </fieldset><br>
-
-
-			params[:requirement][:deadlines_attributes].values[0].values[0]
