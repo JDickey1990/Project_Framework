@@ -1,8 +1,8 @@
 class RequirementsController < ApplicationController
   before_action :verified_user   
+  before_action :set_requirement, only: [:show, :edit, :update, :destroy]
 
   def show 
-    @requirement = Requirement.find(params[:id])
   end
 
   def new
@@ -20,12 +20,10 @@ class RequirementsController < ApplicationController
     end
   end
 
-  def edit
-    @requirement = Requirement.find(params[:id]) 
+  def edit 
   end
 
   def update 
-    @requirement = Requirement.find(params[:id])
     updated = @requirement.update(requirement_params)
     if updated
       redirect_to requirement_path(@requirement)
@@ -34,33 +32,24 @@ class RequirementsController < ApplicationController
     end
   end
 
-  
-
   def destroy
-    Requirement.find(params[:id]).destroy
+    @requirement.destroy
     redirect_to projects_path
   end
 
   private 
 
   def requirement_params
-  params.require(:requirement).permit(:description, :priority, :notes, deadlines_attributes: [:deadline, :project_id, :id])
+    params.require(:requirement).permit(:description, :priority, :notes, deadlines_attributes: [:deadline, :project_id, :id])
   end
 
   
-  def set_project
-    @project = Project.find_by(id: params[:id])
-    if !@project
-      flash[:message] = "Project Was not found."
+  def set_requirement
+    @requirement = Requirement.find_by(id: params[:id])
+    if !@requirement
+      flash[:message] = "Requirement Was not found."
       redirect_to projects_path
     end
-  end
-
-  def redirect_if_not_project_owner
-      if @project.user != current_user
-        flash[:message] = "Access Denied"
-        redirect_to projects_path 
-      end
   end
 
 end
