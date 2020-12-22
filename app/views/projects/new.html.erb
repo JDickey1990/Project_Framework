@@ -1,4 +1,5 @@
   <%= render partial: '/layouts/errors', locals: {object: @project} %>
+  <%= flash[:message] %>
     <%= form_for @project do |f|%>  
         <fieldset><br>
             <%= f.label "Project Name:" %><br>

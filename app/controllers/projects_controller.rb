@@ -1,11 +1,13 @@
 class ProjectsController < ApplicationController
-    before_action :verified_user    
+    before_action :verified_user  
+    before_action :set_project, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_if_not_project_owner, only: [:edit, :update, :destroy]
+
     def index
         @projects = current_user.projects
     end
 
     def show 
-        @project = Project.find_by(id: params[:id])
     end
 
     def new 
@@ -14,6 +16,7 @@ class ProjectsController < ApplicationController
      end
 
     def create
+        # binding.pry
         @project = current_user.projects.build(project_params)
         if @project.save
             redirect_to project_path(@project)
@@ -23,11 +26,9 @@ class ProjectsController < ApplicationController
     end
 
     def edit
-        @project = Project.find(params[:id]) 
     end
   
     def update 
-        @project = Project.find(params[:id])
         updated = @project.update(project_params)
         if updated
             redirect_to project_path(@project)
@@ -37,7 +38,7 @@ class ProjectsController < ApplicationController
     end
 
     def destroy
-        Project.find(params[:id]).destroy
+        @project.destroy
         redirect_to projects_path
     end
 
@@ -48,6 +49,17 @@ class ProjectsController < ApplicationController
     end
 
     def set_project
-        @project = Project.find(params[:id])
+        @project = Project.find_by(id: params[:id])
+        if !@project
+            flash[:message] = "Project Was not found."
+            redirect_to projects_path
+        end
+    end
+
+    def redirect_if_not_project_owner
+        if @project.user != current_user
+            flash[:message] = "Access Denied"
+            redirect_to projects_path 
+        end
     end
 end
