@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :requirements, only: [:new, :index, :show, :delete]
   end
 
-  get '/resources/:id/activate', to: 'requirements#status', as: "requirement_status"
+  get '/deadline/:id/activate', to: 'deadlines#status', as: "deadline_status"
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 

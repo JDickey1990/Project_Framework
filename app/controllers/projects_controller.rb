@@ -16,7 +16,6 @@ class ProjectsController < ApplicationController
      end
 
     def create
-        # binding.pry
         @project = current_user.projects.build(project_params)
         if @project.save
             redirect_to project_path(@project)
