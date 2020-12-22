@@ -1,18 +1,19 @@
 <%= render partial: '/layouts/errors', locals: {object: @user} %>
+
 <%= form_for @user do |f| %>
     <fieldset><br>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br><br>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %><br><br>
     </fieldset><br>
 
     <fieldset><br>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %><br><br>
+        <%= f.label :email %><br>
+        <%= f.text_field :email %><br><br>
     </fieldset><br>
 
     <fieldset><br>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br><br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %><br><br>
     </fieldset><br>
 
     <%= f.submit "Create User" %><br>

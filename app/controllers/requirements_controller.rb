@@ -24,7 +24,6 @@ class RequirementsController < ApplicationController
     end
 
     def update 
-      # binding.pry
       @requirement = Requirement.find(params[:id])
       updated = @requirement.update(requirement_params)
       if updated
@@ -45,12 +44,11 @@ class RequirementsController < ApplicationController
         @deadline = Deadline.find(params[:id])
         if @deadline.completed == true
             @deadline.completed = false
-            @deadline.save
-          else  @deadline.completed == false
+        else  
             @deadline.completed = true
-            @deadline.save
-          end
-          redirect_to project_path(@deadline.project_id)
+        end
+        @deadline.save
+        redirect_to project_path(@deadline.project_id)
     end
 
 

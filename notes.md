@@ -105,3 +105,6 @@
                 <%= deadline.datetime_local_field :deadline %></p>
               <% end %>
             </fieldset><br>
+
+
+			params[:requirement][:deadlines_attributes].values[0].values[0]
