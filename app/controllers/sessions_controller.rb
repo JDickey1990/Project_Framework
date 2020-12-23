@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id 
             redirect_to projects_path
         else
-            flash[:message] = @user.errors.full_messages.join(", ")
+            flash[:error] = "Invalid Entry, Please enter a valid email and password"
             redirect_to login_path
         end
     end

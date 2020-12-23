@@ -1,5 +1,9 @@
-<%= flash[:message] %>
+
+|| <%= link_to "Welcome Page", root_path %> ||
+
+
 <h1> Log In </h1>
+<%= flash[:error] %><br>
 <%= form_for(:user, url: '/login') do |f| %>
     <fieldset><br>
         <%= f.label :email %><br>
@@ -7,6 +11,9 @@
     
         <%= f.label :password %><br>
         <%= f.password_field :password %><br><br>
+    <%= f.submit "Log In" %>
     </fieldset><br>
-    <%= f.submit "Login" %><br>
 <% end %>
+
+OR 
+<br><br><%= button_to "Log In With Google", '/auth/google_oauth2' %>
