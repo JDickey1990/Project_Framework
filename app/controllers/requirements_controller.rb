@@ -43,7 +43,6 @@ class RequirementsController < ApplicationController
     params.require(:requirement).permit(:description, :priority, :notes, deadlines_attributes: [:deadline, :project_id, :id])
   end
 
-  
   def set_requirement
     @requirement = Requirement.find_by(id: params[:id])
     if !@requirement

@@ -8,21 +8,35 @@
 <%= link_to "Edit Project", edit_project_path(@project) %><br>
 <%= link_to "Delete Project", project_path(@project), method: :delete, data: { confirm: "Are you sure you want to delete this project?"}%><br>
 
+
+<h3> List Of Incomplete Project Requirements</h3>
+<ol>
+    <% @incomplete_statuses.each do |incomplete_status| %>
+      <li><h4><%= incomplete_status.requirement.description %></h4></li>
+      <%= link_to "Change Status:", deadline_status_path(incomplete_status.requirement) %> Incomplete <br>
+      <% if incomplete_status.deadline %>
+        <%= "Deadline:#{incomplete_status.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br><br>
+      <% end %>
+    <%end %>
+</ol>
+
+
+
 <h3> List Of Project Requirements</h3>
 <ol>
     <%@project.requirements.each do |r| %>
      <li><h4><%= r.description %></h4></li>  
       <% r.deadlines.each do |deadline|%>
         <% if deadline.completed == false %>
-           <%= link_to "Change Status:", deadline_status_path(deadline) %> Incomplete <br>
+          <%= link_to "Change Status:", deadline_status_path(deadline) %> Incomplete <br>
         <% else deadline.completed == true %>
-           <%= link_to "Change Status:", deadline_status_path(deadline) %> Complete <br>
+          <%= link_to "Change Status:", deadline_status_path(deadline) %> Complete <br>
         <%end%>  
-          <% if deadline.deadline %>
-            <%= "Deadline:#{deadline.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br><br>
-          <% end %>
+        <% if deadline.deadline %>
+          <%= "Deadline:#{deadline.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br><br>
+        <% end %>
       <% end %>
-        <%= link_to "Requirement Details", requirement_path(r) %>
+      <%= link_to "Requirement Details", requirement_path(r) %>
    <% end %>
 </ol>
 

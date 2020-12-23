@@ -15,61 +15,59 @@ sarah.projects.create(name: "Mod 3 ROR", description: "An even better ruby on ra
 
 
 #Requirements
-Requirement.create(description: "Using Ruby on Rails", priority: "High")
+Requirement.create(description: "Use the Ruby on Rails framework.", priority: "High")
 Deadline.create(requirement_id: 1, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "include atleast one has_many relationship", priority: "High")
+Requirement.create(description: "Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships", priority: "High")
 Deadline.create(requirement_id: 2, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "include atleast one belongs_to relationship", priority: "High")
+
+Requirement.create(description: "Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user", priority: "High")
 Deadline.create(requirement_id: 3, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-
-Requirement.create(description: "include atleast two has_many through relationships", priority: "High")
+Requirement.create(description: "Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.", priority: "High")
 Deadline.create(requirement_id: 4, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "include atleast one many-to-many relationship", priority: "High")
+Requirement.create(description: "You must include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).", priority: "High")
 Deadline.create(requirement_id: 5, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "The through part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)", priority: "High")
+Requirement.create(description: "Your application must provide standard user authentication, including signup, login, logout, and passwords.", priority: "High")
 Deadline.create(requirement_id: 6, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)", priority: "High")
+Requirement.create(description: "Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...", priority: "High")
 Deadline.create(requirement_id: 7, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)", priority: "High")
+Requirement.create(description: "You must include and make use of a nested resource with the appropriate RESTful URLs.", priority: "High")
 Deadline.create(requirement_id: 8, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "Include signup", priority: "High")
+Requirement.create(description: " You must include a nested new route with form that relates to the parent resource", priority: "High")
 Deadline.create(requirement_id: 9, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "Include login", priority: "High")
+Requirement.create(description: "You must include a nested index or show route", priority: "High")
 Deadline.create(requirement_id: 10, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "Include logout", priority: "High")
+Requirement.create(description: "Your forms should correctly display validation errors.
+
+a. Your fields should be enclosed within a fields_with_errors class
+
+b. Error messages describing the validation failures must be present within the view.", priority: "High")
+
 Deadline.create(requirement_id: 11, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "Include third party signup/login (how e.g. Devise/OmniAuth)", priority: "High")
+Requirement.create(description: "Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.", priority: "High")
 Deadline.create(requirement_id: 12, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "Include nested resource show or index (URL e.g. users/2/recipes)", priority: "High")
+Requirement.create(description: " Logic present in your controllers should be encapsulated as methods in your models.", priority: "High")
 Deadline.create(requirement_id: 13, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "Include nested resource new form (URL e.g. recipes/1/ingredients/new)", priority: "High")
+Requirement.create(description: " Your views should use helper methods and partials when appropriate.", priority: "High")
 Deadline.create(requirement_id: 14, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: " Include form display of validation errors (form URL e.g. /recipes/new)", priority: "High")
+Requirement.create(description: "Follow patterns in the Rails Style Guide and the Ruby Style Guide.", priority: "High")
 Deadline.create(requirement_id: 15, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "The application is pretty DRY", priority: "High")
+Requirement.create(description: "Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.", priority: "High")
 Deadline.create(requirement_id: 16, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "Limited logic in controllers", priority: "High")
-Deadline.create(requirement_id: 17, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 
-Requirement.create(description: "Views use helper methods if appropriate", priority: "High")
-Deadline.create(requirement_id: 18, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
-
-Requirement.create(description: "Views use partials if appropriate", priority: "High")
-Deadline.create(requirement_id: 19, project_id: 1, :deadline  => DateTime.strptime("12/25/2020 12:00", "%m/%d/%Y %H:%M"))
 

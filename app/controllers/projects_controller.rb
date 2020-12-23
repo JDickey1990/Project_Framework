@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
     end
 
     def show 
+        @incomplete_statuses = @project.deadlines.incomplete_statuses
     end
 
     def new 
@@ -44,7 +45,7 @@ class ProjectsController < ApplicationController
     private
 
     def project_params
-        params.require(:project).permit(:name, :description, :user_id, :project_deadline, requirements_attributes: [:description, :notes])
+        params.require(:project).permit(:name, :description, :user_id, :project_deadline, requirements_attributes: [:description, :notes, :priority])
     end
 
     def set_project

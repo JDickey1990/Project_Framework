@@ -1,45 +1,58 @@
-  <%= render partial: '/layouts/errors', locals: {object: @project} %>
-    <%= form_for @project do |f|%>  
-        <fieldset><br>
-            <%= f.label "Project Name:" %><br>
-            <%= f.text_field :name%><br><br>
-    
-            <%= f.label "Project Description:" %><br>
-            <%= f.text_area :description %><br><br>
+<%= render partial: '/layouts/errors', locals: {object: @project} %>
 
-            <p><%= f.label :project_deadline %>
-            <%= f.datetime_local_field :project_deadline %></p>
-        </fieldset><br>
+<h1> Project Details </h1>
+<%= form_for @project do |f|%>  
+  <fieldset><br>
+    <%= f.label "Project Name:" %><br>
+    <%= f.text_field :name%><br><br>
 
-       <fieldset><br>
-          <%= "Create the Project's Top 3 Requirements" %><br><br>
-          <%= f.label "Requirement #1" %><br>
-          <%= f.fields_for :requirements, @project.requirements.build do |requirement| %>
-            <p><%= f.label :description %>
-            <%= requirement.text_field :description %><p>
-            <p><%= f.label :notes %>
-            <%= requirement.text_field :notes %><p>
-          <% end %>
-      
-          <%= f.label "Requirement #2" %><br>
-          <%= f.fields_for :requirements, @project.requirements.build do |requirement| %>
-            <p><%= f.label :description %>
-            <%= requirement.text_field :description %><p>
-            <p><%= f.label :notes %>
-            <%= requirement.text_field :notes %><p>
-          <% end %>
-       
-          <%= f.label "Requirement #3" %><br>
-          <%= f.fields_for :requirements, @project.requirements.build do |requirement| %>
-            <p><%= f.label :description %>
-            <%= requirement.text_field :description %><p>
-            <p><%= f.label :notes %>
-            <%= requirement.text_field :notes %><p>
-          <% end %>
-       </fieldset><br>
+    <%= f.label "Project Description:" %><br>
+    <%= f.text_area :description %><br><br>
 
-     <%= f.submit "Create project" %>
-   <% end %>
+    <p><%= f.label :project_deadline %>
+    <%= f.datetime_local_field :project_deadline %></p>
+  </fieldset><br>
+
+  
+  <h2> Create the Project's Top 3 Requirements </h2>
+  <fieldset><br>
+    <%= f.label "Requirement #1" %><br>
+    <%= f.fields_for :requirements, @project.requirements.build do |requirement| %>
+      <p><%= f.label :description %>
+      <%= requirement.text_field :description %><p>
+      <p><%= f.label :priority %>
+      <%= requirement.text_field :priority %><p>
+      <p><%= f.label :notes %>
+      <%= requirement.text_field :notes %><p>
+    <% end %>
+  </fieldset><br>
+
+  <fieldset><br>
+    <%= f.label "Requirement #2" %><br>
+    <%= f.fields_for :requirements, @project.requirements.build do |requirement| %>
+      <p><%= f.label :description %>
+      <%= requirement.text_field :description %><p>
+      <p><%= f.label :priority %>
+      <%= requirement.text_field :priority %><p>
+      <p><%= f.label :notes %>
+      <%= requirement.text_field :notes %><p>
+    <% end %>
+  </fieldset><br> 
+
+  <fieldset><br>
+    <%= f.label "Requirement #3" %><br>
+    <%= f.fields_for :requirements, @project.requirements.build do |requirement| %>
+      <p><%= f.label :description %>
+      <%= requirement.text_field :description %><p>
+      <p><%= f.label :priority %>
+      <%= requirement.text_field :priority %><p>
+      <p><%= f.label :notes %>
+      <%= requirement.text_field :notes %><p>
+    <% end %>
+  </fieldset><br>
+
+  <%= f.submit "Create project" %>
+<% end %><br><br>
 
 
    
