@@ -1,13 +1,20 @@
-<h1><%= @requirement.description %></h1>
 
-<%= link_to "Edit Requirement", edit_requirement_path(@requirement) %><br>
-<%= link_to "Delete Requirement", requirement_path( @requirement), method: :delete, data: { confirm: "Are you sure you want to delete this requirement?"}%><br>
+<% @requirement.deadlines.each do |deadline| %>
+    <h1><%= deadline.project.name %></h1>
+<% end %>
 
+<h2> Requirement Details </h2>
+<h3><%="Description: #{@requirement.description}" %></h3>
 
-<p><%= "Notes: #{@requirement.notes}" %></p>
+<h4><%= "Priority: #{@requirement.priority}" %></h4>
 
 <% @requirement.deadlines.each do |d| %>
     <% if d.deadline %>
-    <%= "Deadline:#{d.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br>
+    <h4><%= "Requirement Deadline: #{d.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %></h4>
    <% end %>
 <% end%>
+
+<h4><p><%= "Notes: #{@requirement.notes}" %></p></h4>
+
+<%= link_to "Edit Requirement", edit_requirement_path(@requirement) %><br><br>
+<%= link_to "Delete Requirement", requirement_path( @requirement), method: :delete, data: { confirm: "Are you sure you want to delete this requirement?"}%><br>
