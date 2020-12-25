@@ -1,8 +1,9 @@
+<%= flash[:error] %><br>
 <h1><%= @project.name %></h1>
 
 <h2><%= @project.description %></h2>
 
-<h3><%= "Project Deadline: #{@project.project_deadline.strftime("%A, %d %b %Y %l:%M %p")}" %></h3>
+<h3> Project Deadline: <%= @project.project_deadline.strftime("%A, %d %b %Y %l:%M %p") %></h3>
 
 <%= link_to "Add A New Requirement", new_project_requirement_path(@project) %><br><br>
 <%= link_to "Edit Project", edit_project_path(@project) %><br><br>
@@ -10,23 +11,27 @@
 
 
 <h3> List Of Incomplete Project Requirements</h3>
-<ol>
-    <% @incomplete_statuses.each do |incomplete_status| %>
-      <li><h4><%= incomplete_status.requirement.description %></h4></li>
-      <%= link_to "Change Status:", deadline_status_path(incomplete_status.requirement) %> Incomplete <br>
-      <% if incomplete_status.deadline %>
-        <%= "Deadline:#{incomplete_status.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br><br>
-      <% end %>
-    <%end %>
-</ol>
+<% if !@incomplete_statuses.nil? %>
+  <ol>
+      <% @incomplete_statuses.each do |incomplete_status| %>
+        <% if !incomplete_status.requirement.nil? %>
+          <li><h4><%= incomplete_status.requirement.description %></h4></li>
+          <%= link_to "Change Status:", deadline_status_path(incomplete_status.requirement) %> Incomplete <br>
+        <% end %>
+        <% if incomplete_status.deadline %>
+          <%= "Deadline:#{incomplete_status.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br><br>
+        <% end %>
+      <%end %>
+  </ol>
+<% end %>
 
 
 
 <h3> List Of Project Requirements</h3>
 <ol>
-    <%@project.requirements.each do |r| %>
+    <% @project.requirements.each do |r| %>
      <li><h4><%= r.description %></h4></li>  
-      <% r.deadlines.each do |deadline|%>
+      <% r.deadlines.each do |deadline| %>
         <% if deadline.completed == false %>
           <%= link_to "Change Status:", deadline_status_path(deadline) %> Incomplete <br>
         <% else deadline.completed == true %>
@@ -36,7 +41,7 @@
           <%= "Deadline:#{deadline.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br><br>
         <% end %>
       <% end %>
-      <%= link_to "Requirement Details", requirement_path(r) %>
+      <%= link_to "Requirement Details", project_requirement_path(@project, r) %>
    <% end %>
 </ol>
 
