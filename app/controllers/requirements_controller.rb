@@ -33,6 +33,7 @@ class RequirementsController < ApplicationController
   end
 
   def destroy
+    @requirement.deadlines.destroy_all
     @requirement.destroy
     redirect_to projects_path
   end
