@@ -18,11 +18,11 @@ Specs:
  [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
     The deadline model has a scope method that queries the database for deadlines with a completed attribute that compares to false.
  [x] Include signup (how e.g. Devise)
-    The user models handles the sign up functionality with the new and create actions.
+    The user controller handles the sign up functionality with the new and create actions.
  [x] Include login (how e.g. Devise)
-    The session controller handles the log in functionaliy with the new and create actions.
+    The session controller handles the log in functionality with the new and create actions.
  [x] Include logout (how e.g. Devise)
-    The session controller handles the log in functionaliy with the destroy action.
+    The session controller handles the log out functionality with the destroy action.
  [x] Include third party signup/login (how e.g. Devise/OmniAuth)
     Omniauth handles the third party signup/login functionality in the sessions controller.
  [x] Include nested resource show or index (URL e.g. users/2/recipes)
