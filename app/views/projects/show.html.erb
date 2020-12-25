@@ -1,4 +1,3 @@
-<%= flash[:error] %><br>
 <h1><%= @project.name %></h1>
 
 <h2><%= @project.description %></h2>
@@ -19,7 +18,7 @@
           <%= link_to "Change Status:", deadline_status_path(incomplete_status.requirement) %> Incomplete <br>
         <% end %>
         <% if incomplete_status.deadline %>
-          <%= "Deadline:#{incomplete_status.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br><br>
+           Deadline:  <%= incomplete_status.deadline.strftime("%A, %d %b %Y %l:%M %p") %><br><br>
         <% end %>
       <%end %>
   </ol>
@@ -38,7 +37,7 @@
           <%= link_to "Change Status:", deadline_status_path(deadline) %> Complete <br>
         <%end%>  
         <% if deadline.deadline %>
-          <%= "Deadline:#{deadline.deadline.strftime("%A, %d %b %Y %l:%M %p")}" %><br><br>
+           Deadline: <%= deadline.deadline.strftime("%A, %d %b %Y %l:%M %p") %><br><br>
         <% end %>
       <% end %>
       <%= link_to "Requirement Details", project_requirement_path(@project, r) %>

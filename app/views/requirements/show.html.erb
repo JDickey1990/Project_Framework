@@ -4,9 +4,9 @@
 <% end %>
 
 <h2> Requirement Details </h2>
-<h3><%="Description: #{@requirement.description}" %></h3>
+<h3> Description:<%= @requirement.description %></h3>
 
-<h4><%= "Priority: #{@requirement.priority}" %></h4>
+<h4> Priority:<%= @requirement.priority %></h4>
 
 <% @requirement.deadlines.each do |d| %>
     <% if d.deadline %>

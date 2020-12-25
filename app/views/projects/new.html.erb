@@ -20,8 +20,10 @@
     <%= f.fields_for :requirements, @project.requirements.build do |requirement| %>
       <p><%= f.label :description %>
       <%= requirement.text_field :description %><p>
+
       <p><%= f.label :priority %>
       <%= requirement.text_field :priority %><p>
+
       <p><%= f.label :notes %>
       <%= requirement.text_area :notes %><p>
     <% end %>
@@ -32,8 +34,10 @@
     <%= f.fields_for :requirements, @project.requirements.build do |requirement| %>
       <p><%= f.label :description %>
       <%= requirement.text_field :description %><p>
+
       <p><%= f.label :priority %>
       <%= requirement.text_field :priority %><p>
+
       <p><%= f.label :notes %>
       <%= requirement.text_area :notes %><p>
     <% end %>
@@ -44,8 +48,10 @@
     <%= f.fields_for :requirements, @project.requirements.build do |requirement| %>
       <p><%= f.label :description %>
       <%= requirement.text_field :description %><p>
+
       <p><%= f.label :priority %>
       <%= requirement.text_field :priority %><p>
+      
       <p><%= f.label :notes %>
       <%= requirement.text_area :notes %><p>
     <% end %>
