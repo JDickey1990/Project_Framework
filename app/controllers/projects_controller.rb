@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
     before_action :verified_user  
     before_action :set_project, only: [:show, :edit, :update, :destroy]
-    before_action :redirect_if_not_project_owner, only: [:edit, :update, :destroy]
+    before_action :redirect_if_not_project_owner, only: [:show, :edit, :update, :destroy]
 
     def index
         @projects = current_user.projects
