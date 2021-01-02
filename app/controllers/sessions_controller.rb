@@ -16,11 +16,7 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-         user = User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
-            u.name = auth['info']['name']
-            u.email = auth['info']['email']
-            u.password = SecureRandom.hex(13)
-         end
+         user = User.find_or_create_by_omniauth(auth)
          if user.valid?
             session[:user_id] = user.id
             redirect_to projects_path
