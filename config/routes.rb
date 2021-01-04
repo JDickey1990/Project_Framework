@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :projects do 
-      resources :requirements, only: [:new, :index, :show, :delete]
+      resources :requirements, only: [:new, :index, :show, :delete, :edit]
   end
 
   get '/deadline/:id/activate', to: 'deadlines#status', as: "deadline_status"
