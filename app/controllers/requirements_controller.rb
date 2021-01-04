@@ -3,6 +3,7 @@ class RequirementsController < ApplicationController
   before_action :set_requirement, only: [:show, :edit, :update, :destroy]
 
   def show 
+    @project = Project.find_by(id: params[:project_id])
   end
 
   def new
@@ -21,6 +22,7 @@ class RequirementsController < ApplicationController
   end
 
   def edit 
+    @project = Project.find_by(id: params[:project_id])
   end
 
   def update 
@@ -33,7 +35,6 @@ class RequirementsController < ApplicationController
   end
 
   def destroy
-    @requirement.deadlines.destroy_all
     @requirement.destroy
     redirect_to projects_path
   end
