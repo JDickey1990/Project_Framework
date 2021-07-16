@@ -1,17 +1,46 @@
-|| <%= link_to "Welcome Page", root_path %> ||
+<section >
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul class="main-nav">
+                <li><a href="#"><%= link_to "Welcome Page", root_path %></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row justify-content-center">
+        <div class="col-4 form">
+            <%= form_for(:user, url: '/login') do |f|%>
+                <fieldset>
+                    <div class="py-5 text-center container">
+                        <div class="row mb-3">
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Email" aria-label="Email"  <%= f.text_field :email, class: "form-control" %>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Password" aria-label="Password"  <%= f.password_field :password, class: "form-control" %>
+                            </div>
+                        </div>
+                        <div class="btn-login">
+                            <div class="row mb-3">
+                                <div class="col-sm-10">
+                                    <h6><%= flash[:error] %></h6>
+                                </div>
+                            </div>
+                            <%= f.submit "Sign Up", class:"btn btn-primary my2" %>
+                        </div>
+                    </div>
+                </fieldset>  
+            <% end %>
+        </div>
+        <div class="col-4 third-party">
+            <div class="text-center">
+                <h4>Or you can Login with Google!</h4>
+                <%= button_to "Log In With Google", '/auth/google_oauth2', class:"btn btn-outline-dark my-2" %>
+            </div>
+        </div>
+    </div>
+</section>
 
-<h1> Log In </h1>
-<%= flash[:error] %><br>
-<%= form_for(:user, url: '/login') do |f| %>
-    <fieldset><br>
-        <%= f.label :email %><br>
-        <%= f.text_field :email %><br><br>
-    
-        <%= f.label :password %><br>
-        <%= f.password_field :password %><br><br>
-    <%= f.submit "Log In" %>
-    </fieldset><br>
-<% end %>
 
-OR 
-<br><br><%= button_to "Log In With Google", '/auth/google_oauth2' %>
+

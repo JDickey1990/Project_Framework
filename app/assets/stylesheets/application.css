@@ -14,69 +14,104 @@
  *= require_self
  */
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
 }
 
 html {
-    /* optimizeLegibilty helps to keep clear presentation of text on the screen */
-    background-color: #fff;
-    color: #555;
-    font-family: "Lato", sans-serif;
-    font-weight: 300;
-    font-size: 1.25rem;
-    text-rendering: optimizeLegibility;
-  }
+  /* optimizeLegibilty helps to keep clear presentation of text on the screen */
+  background-color: #52616B;
+  color: #F0F5F9;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  text-rendering: optimizeLegibility;
+}
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
   font-weight: 300;
   text-transform: uppercase;
+  text-align: center;
+  color: #f0f5f9;
 }
 h1 {
-    margin-top: 0;
-    margin-bottom: 1.25rem;
-    color: #fff;
-    font-size: 240%;
-    word-spacing: 0.125rem;
-    letter-spacing: 0.063rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 240%;
+  word-spacing: 0.125rem;
+  letter-spacing: 0.063rem;
+}
+ p {
+    color: #F0F5F9;
+ }
+section {
+    background-color: #52616B;
 }
 
 /* ---------MAIN NAVIGATION-------- */
-.main-nav {
-    float: left !important;
+.navbar {
+  background-color: #1e2022 !important;
+}
 
-    margin-top: 1rem;
-  }
-  
-  .main-nav li {
-    display: inline-block;
-    margin-left: 2.5rem;
-  }
-  
-  /* stating that the main-nav grandchild <a tag is a link and that when the link has been visited it should look the same */
-  .main-nav li a:link,
-  .main-nav li a:visited {
-    padding: 0.5rem 0;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    /* the base font size divided by the desired font size can be written as a percentage */
-    font-size: 90%;
-    border-bottom: 0.125rem solid transparent;
-    transition: border-bottom 0.2s;
-  }
-  
-  .main-nav li a:hover,
-  .main-nav li a:active {
-    border-bottom: 0.125rem solid #e67e22;
-  }
+.main-nav li {
+  display: inline-block;
+  margin-left: 2.5rem;
+}
 
-.btn{
+/* stating that the main-nav grandchild <a tag is a link and that when the link has been visited it should look the same */
+.main-nav li a:link,
+.main-nav li a:visited {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  /* the base font size divided by the desired font size can be written as a percentage */
+  font-size: 90%;
+  border-bottom: 0.125rem solid transparent;
+  transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+  border-bottom: 0.125rem solid #52616b;
+}
+
+/* ---------BUTTONS-------- */
+.btn:link,
+.btn:visited {
+  /* inline block is  a 3rd type of element in HTML that allows for you to add padding and margin. It dos not cause a line break like block elements. */
+  display: inline-block;
+  /* when setting padding it takes 4 arguments starting with Top, Right, Bottom and Left. You can se the top and the right and the 
+     bottom and the left will be set to match  */
+  padding: 0.625rem 1.875rem;
+  font-weight: 300;
+  /* text-decoration: none will remove the default styling of the link like the underline */
+  text-decoration: none;
+  border-radius: 12.5rem;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  border: 0.063rem solid #C9D6DF !important;
+  background-color: #C9D6DF !important;
+  color: whitesmoke !important;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-dark:active {
+  border: 0.063rem solid #C9D6DF!important;
+  background-color: #C9D6DF !important;
+  color: #fff;
+}
+.btn {
   padding: 0.625rem 1.875rem !important;
   border-radius: 12.5rem !important;
   margin-right: 3rem;
@@ -84,30 +119,64 @@ h1 {
   color: whitesmoke !important;
 }
 
-.sign-up {
-    background-color: #e67e22 !important;
-    color: whitesmoke !important;
+.btn-primary {
+  background-color: #F0F5F9 !important;
+  border: 0.025rem solid #c9d6df;
+  color: black !important;
+}
+
+.btn-outline-dark {
+    border: 0.025rem solid #c9d6df !important;
+}
+
+.call-to-action {
+    margin-top: 10rem;
+  }
+  
+.btn-login {
+    margin-top: 1rem;
 }
 
 
- .homepage {
-   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url(sergey-zolkin-m9qMoh-scfE-unsplash.jpg);
+/* ---------FORMS-------- */
+
+.form-control {
+    background-color: #C9D6DF !important;
+    color: #1E2022 !important;
+    border-color: #1E2022 !important;
+}
+
+.homepage {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(sergey-zolkin-m9qMoh-scfE-unsplash.jpg);
   background-size: cover;
   background-position: center;
   height: 100vh;
-  }
+}
 
-  .greeting {
-    color: whitesmoke ;
-  }
+.greeting {
+  color: #f0f5f9;
+}
 
-  .greeting p {
-    text-align: center;
-    margin-top: 3rem;
-    color: whitesmoke;
-  }
+.greeting p {
+  text-align: center;
+  margin-top: 3rem;
+  color: #f0f5f9;
+}
 
-  .call-to-action {
-    margin-top: 10rem;
-  }
+.form {
+    margin-top: 10% !important;
+}
+
+.third-party {
+    border-left: 0.1rem solid #c9d6df !important;
+    margin-top: 10% !important;
+}
+
+.button_to {
+    margin: 6rem 2rem ;
+    padding-left: 3rem;
+}
+
+

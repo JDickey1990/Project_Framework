@@ -16,22 +16,17 @@
   </head>
   <body>
     <section>
-      
-        <nav class="navbar navbar-dark bg-dark">
+    <% if current_user %>
+        <nav class="navbar">
           <div class="container-fluid">
             <ul class="main-nav">
-              <% if current_user %>
                 <li><a href="#"><%= link_to "Log Out", logout_path, method: :delete%></a></li>
                 <li><a href="#"><%= link_to "Your Projects", projects_path %></a></li>
                 <li><a href="#"><%= link_to "Add A New Project", new_project_path %></a></li> 
-              <% else %>
-                <li><a href="#"><%= link_to "Login", login_path %></a></li> 
-              <% end %>
-
             </ul>
           </div>
         </nav>
-      
+      <% end %>
     </section>
 
     <%= yield %>
