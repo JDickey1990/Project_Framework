@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjectFramework</title>
+    <title>Project Blueprint</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+    </style>
+
+  </head>
   <body>
-  <div>
-    <% if current_user %>
-      || <%= link_to "Log Out", logout_path, method: :delete%> ||
-      <%= link_to "Your Projects", projects_path %> ||
-      <%= link_to "Add A New Project", new_project_path %> ||
-    <% end %>
-  </div>
+    <section>
+      
+        <nav class="navbar navbar-dark bg-dark">
+          <div class="container-fluid">
+            <ul class="main-nav">
+              <% if current_user %>
+                <li><a href="#"><%= link_to "Log Out", logout_path, method: :delete%></a></li>
+                <li><a href="#"><%= link_to "Your Projects", projects_path %></a></li>
+                <li><a href="#"><%= link_to "Add A New Project", new_project_path %></a></li> 
+              <% else %>
+                <li><a href="#"><%= link_to "Login", login_path %></a></li> 
+              <% end %>
+
+            </ul>
+          </div>
+        </nav>
+      
+    </section>
 
     <%= yield %>
-    
   </body>
 </html>

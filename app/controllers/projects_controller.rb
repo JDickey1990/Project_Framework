@@ -1,3 +1,4 @@
+require 'pry'
 class ProjectsController < ApplicationController
     before_action :verified_user  
     before_action :set_project, only: [:show, :edit, :update, :destroy]
@@ -17,6 +18,7 @@ class ProjectsController < ApplicationController
      end
 
     def create
+        binding.pry
         @project = current_user.projects.build(project_params)
         if @project.save
             redirect_to project_path(@project)
@@ -40,6 +42,10 @@ class ProjectsController < ApplicationController
     def destroy
         @project.destroy
         redirect_to projects_path
+    end
+
+    def incomplete
+        @most_requirements = Project.most_requirements
     end
 
     private

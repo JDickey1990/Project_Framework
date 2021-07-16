@@ -47,6 +47,7 @@ class RequirementsController < ApplicationController
 
   def set_requirement
     @requirement = Requirement.find_by(id: params[:id])
+    
     if !@requirement
       flash[:message] = "Requirement Was not found."
       redirect_to projects_path
