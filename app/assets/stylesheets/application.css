@@ -62,8 +62,8 @@ section {
 }
 
 .main-nav li {
-  display: inline-block;
-  margin-left: 2.5rem;
+ margin-left: 2rem;
+ float: left;
 }
 
 /* stating that the main-nav grandchild <a tag is a link and that when the link has been visited it should look the same */
@@ -83,6 +83,27 @@ section {
   border-bottom: 0.125rem solid #52616b;
 }
 
+/* ---------HOMEPAGE-------- */
+
+.homepage {
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url(sergey-zolkin-m9qMoh-scfE-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  
+  .greeting {
+    color: #f0f5f9;
+  }
+  
+  .greeting p {
+    text-align: center;
+    margin-top: 3rem;
+    color: #f0f5f9;
+  }
+  
 /* ---------BUTTONS-------- */
 .btn:link,
 .btn:visited {
@@ -96,6 +117,7 @@ section {
   text-decoration: none;
   border-radius: 12.5rem;
   transition: all 0.2s;
+  text-decoration: none;
 }
 
 .btn-primary:hover,
@@ -146,24 +168,6 @@ section {
     border-color: #1E2022 !important;
 }
 
-.homepage {
-  position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(sergey-zolkin-m9qMoh-scfE-unsplash.jpg);
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-}
-
-.greeting {
-  color: #f0f5f9;
-}
-
-.greeting p {
-  text-align: center;
-  margin-top: 3rem;
-  color: #f0f5f9;
-}
 
 .form {
     margin-top: 10% !important;
@@ -179,4 +183,17 @@ section {
     padding-left: 3rem;
 }
 
+/* ---------PROJECTS-------- */
 
+.project-list li {
+    background-color: #C9D6DF;
+    list-style: none;
+}
+
+.project-list a {
+    text-decoration: none;
+    color: #1E2022;
+    text-transform: uppercase;
+    word-spacing: 0.125rem;
+    letter-spacing: 0.063rem;
+}

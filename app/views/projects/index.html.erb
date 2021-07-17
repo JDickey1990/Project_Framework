@@ -1,8 +1,19 @@
-<h1><%= current_user.name %>'s Projects</h1>
+<section>
+    <h1><%= current_user.name %>'s Projects</h1>
 
-<h2><%= flash[:message]%></h2>
+    <h2><%= flash[:message]%></h2>
 
-<h3> GET TO WORK!!</h3>
-<% @projects.each do |project| %>
-    <h4><%= link_to project.name, project_path(project) %></h4><br>
-<% end %> 
+    <div class=" row justify-content-left">
+        <div class="col-4">
+            <div class="py-5 text-center container">
+                <ul class="project-list">
+                    <% @projects.each do |project| %>
+                        <li><a href="#"class="project-list"><%= link_to project.name, project_path(project) %></a></li>
+                        <br>
+                    <% end %> 
+                </ul>
+            </div>
+        </div>
+    </div>
+  
+</section>
