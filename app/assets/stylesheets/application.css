@@ -14,6 +14,9 @@
  *= require_self
  */
 
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -23,37 +26,72 @@
 
 html {
   /* optimizeLegibilty helps to keep clear presentation of text on the screen */
-  background-color: #52616B;
-  color: #F0F5F9;
+  background-color: #f0f5f9;
+  color: #52616B;
   font-family: "Lato", sans-serif;
   font-weight: 300;
   font-size: 1.25rem;
   text-rendering: optimizeLegibility;
 }
 
+section {
+  background-color: #f0f5f9;
+  padding: 5rem;
+}
+/*--------------HEADINGS---------------- */
 h1,
 h2,
 h3,
-h4,
-h5,
+h4 {
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #52616B;
+}
+h1 {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  color: #F0F5F9;
+  /* By setting 240% here for font size it allows you to change the font size in the HTML selector declaration and the fontsize here 
+  would adjust with that change dynamically */
+  font-size: 240%;
+  word-spacing: 0.125rem;
+  letter-spacing: 0.063rem;
+}
+
+h2 {
+  font-size: 180%;
+  word-spacing: 0.125rem;
+  text-align: center;
+
+  letter-spacing: 0.063rem;
+}
+
+h3 {
+  font-size: 110%;
+  margin-bottom: 0.938rem;
+}
+
+h2:after {
+  display: block;
+  height: 0.125rem;
+  background-color: #1E2022;
+  content: "";
+  width: 13rem;
+  margin: 1.875rem auto;
+}
+
 h6 {
   font-weight: 300;
   text-transform: uppercase;
   text-align: center;
   color: #f0f5f9;
 }
-h1 {
-  margin-top: 0;
-  margin-bottom: 1.25rem;
-  font-size: 240%;
-  word-spacing: 0.125rem;
-  letter-spacing: 0.063rem;
-}
- p {
-    color: #F0F5F9;
- }
-section {
-    background-color: #52616B;
+
+/*--------------PARAGRAPHS---------------- */
+.long-copy {
+  line-height: 145%;
+  width: 70%;
+  margin-left: 15%;
 }
 
 /* ---------MAIN NAVIGATION-------- */
@@ -61,10 +99,18 @@ section {
   background-color: #1e2022 !important;
 }
 
-.main-nav li {
- margin-left: 2rem;
- float: left;
+.main-nav {
+  float: right;
+  /* removes the bullet point from the ul */
+  list-style: none;
+  margin: 0 0;
 }
+
+.main-nav li {
+  display: inline-block;
+  margin-left: 2.5rem;
+}
+
 
 /* stating that the main-nav grandchild <a tag is a link and that when the link has been visited it should look the same */
 .main-nav li a:link,
@@ -86,24 +132,41 @@ section {
 /* ---------HOMEPAGE-------- */
 
 .homepage {
-    position: relative;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url(sergey-zolkin-m9qMoh-scfE-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-  }
-  
-  .greeting {
-    color: #f0f5f9;
-  }
-  
-  .greeting p {
-    text-align: center;
-    margin-top: 3rem;
-    color: #f0f5f9;
-  }
-  
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(sergey-zolkin-m9qMoh-scfE-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+.greeting {
+  color: #f0f5f9;
+}
+
+.greeting p {
+  text-align: center;
+  margin-top: 3rem;
+  color: #f0f5f9;
+}
+
+/* 
+.logo {
+  height: 2rem;
+  width: auto;
+  float: left;
+  margin-top: 1.25rem;
+} */
+
+/*--------------ICONS---------------- */
+.icon-big {
+  font-size: 250%;
+  display: block;
+  color: #C9D6DF;
+  margin-bottom: 0.8rem;
+  margin-left: 250px;
+}
 /* ---------BUTTONS-------- */
 .btn:link,
 .btn:visited {
@@ -122,15 +185,15 @@ section {
 
 .btn-primary:hover,
 .btn-primary:active {
-  border: 0.063rem solid #C9D6DF !important;
-  background-color: #C9D6DF !important;
+  border: 0.063rem solid #c9d6df !important;
+  background-color: #c9d6df !important;
   color: whitesmoke !important;
 }
 
 .btn-outline-dark:hover,
 .btn-outline-dark:active {
-  border: 0.063rem solid #C9D6DF!important;
-  background-color: #C9D6DF !important;
+  border: 0.063rem solid #c9d6df !important;
+  background-color: #c9d6df !important;
   color: #fff;
 }
 .btn {
@@ -138,62 +201,60 @@ section {
   border-radius: 12.5rem !important;
   margin-right: 3rem;
   font-weight: 600 !important;
-  color: whitesmoke !important;
+  color: #1E2022!important;
 }
 
 .btn-primary {
-  background-color: #F0F5F9 !important;
-  border: 0.025rem solid #c9d6df;
-  color: black !important;
+  background-color: #f0f5f9 !important;
+  border: 0.025rem solid #c9d6df !important;
+  color: #1E2022 !important;
 }
 
 .btn-outline-dark {
-    border: 0.025rem solid #c9d6df !important;
+  border: 0.025rem solid #c9d6df !important;
 }
 
 .call-to-action {
-    margin-top: 10rem;
-  }
-  
-.btn-login {
-    margin-top: 1rem;
+  margin-top: 10rem;
 }
 
+.btn-login {
+  margin-top: 1rem;
+}
 
 /* ---------FORMS-------- */
 
 .form-control {
-    background-color: #C9D6DF !important;
-    color: #1E2022 !important;
-    border-color: #1E2022 !important;
+  background-color: #c9d6df !important;
+  color: #1e2022 !important;
+  border-color: #1e2022 !important;
 }
 
-
 .form {
-    margin-top: 10% !important;
+  margin-top: 5% !important;
 }
 
 .third-party {
-    border-left: 0.1rem solid #c9d6df !important;
-    margin-top: 10% !important;
+  border-left: 0.1rem solid #c9d6df !important;
+  margin-top: 7% !important;
 }
 
 .button_to {
-    margin: 6rem 2rem ;
-    padding-left: 3rem;
+  margin: 6rem 2rem;
+  padding-left: 3rem;
 }
 
 /* ---------PROJECTS-------- */
 
 .project-list li {
-    background-color: #C9D6DF;
-    list-style: none;
+  background-color: #c9d6df;
+  list-style: none;
 }
 
 .project-list a {
-    text-decoration: none;
-    color: #1E2022;
-    text-transform: uppercase;
-    word-spacing: 0.125rem;
-    letter-spacing: 0.063rem;
+  text-decoration: none;
+  color: #1e2022;
+  text-transform: uppercase;
+  word-spacing: 0.125rem;
+  letter-spacing: 0.063rem;
 }

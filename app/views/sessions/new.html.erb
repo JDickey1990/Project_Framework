@@ -1,4 +1,4 @@
-<section >
+
     <nav class="navbar">
         <div class="container-fluid">
             <ul class="main-nav">
@@ -6,6 +6,11 @@
             </ul>
         </div>
     </nav>
+    
+    <section >
+    <div class="row">
+        <h2>Login</h2>
+    </div>
     <div class="row justify-content-center">
         <div class="col-4 form">
             <%= form_for(:user, url: '/login') do |f|%>
@@ -27,7 +32,7 @@
                                     <h6><%= flash[:error] %></h6>
                                 </div>
                             </div>
-                            <%= f.submit "Sign Up", class:"btn btn-primary my2" %>
+                            <%= f.submit "Login", class:"btn btn-primary my2" %>
                         </div>
                     </div>
                 </fieldset>  
@@ -36,7 +41,7 @@
         <div class="col-4 third-party">
             <div class="text-center">
                 <h4>Or you can Login with Google!</h4>
-                <%= button_to "Log In With Google", '/auth/google_oauth2', class:"btn btn-outline-dark my-2" %>
+                <%= button_to "Login With Google", '/auth/google_oauth2', class:"btn btn-outline-dark my-2" %>
             </div>
         </div>
     </div>

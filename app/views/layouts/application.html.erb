@@ -8,26 +8,26 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
     </style>
 
   </head>
   <body>
-    <section>
     <% if current_user %>
-        <nav class="navbar">
+      <nav class="navbar">
           <div class="container-fluid">
-            <ul class="main-nav">
-                <li><a href="#"><%= link_to "Log Out", logout_path, method: :delete%></a></li>
-                <li><a href="#"><%= link_to "Your Projects", projects_path %></a></li>
-                <li><a href="#"><%= link_to "Add A New Project", new_project_path %></a></li> 
-            </ul>
+            <div class="main-nav">
+              <ul>
+                  <li><a href="#"><%= link_to "Log Out", logout_path, method: :delete%></a></li>
+                  <li><a href="#"><%= link_to "Your Projects", projects_path %></a></li>
+                  <li><a href="#"><%= link_to "Add A New Project", new_project_path %></a></li> 
+              </ul>
+            </div>
           </div>
-        </nav>
-      <% end %>
-    </section>
+      </nav>
+    <% end %>
 
     <%= yield %>
   </body>
